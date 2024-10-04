@@ -24,6 +24,6 @@ jobs:
 
     - name: Deploy to Surge
       env:
-          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+          SURGE_TOKEN: ${{ secrets.SECRET_TOKEN }}
       run: 
-        npm surge ./src luis-p1.surge.sh $SURGE_TOKEN
+        npm surge ./src luis-p1.surge.sh $SECRET_TOKEN
