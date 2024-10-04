@@ -16,14 +16,8 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: '18'
-        cache: 'npm'
-    - run: npm install
-    - run: npm run build --if-present
-    - name: Installing surge    
-      run: npm install --global surge
+
+    - run: npm install --global surge
 
     - name: Deploy to Surge
-      env:
-          SURGE_TOKEN: ${{ secrets.SECRET_TOKEN }}
-      run: 
-        npm surge ./src luis-p1.surge.sh $SECRET_TOKEN
+      run: surge ./src https://luis-p1.surge.sh --token ${{ secrets.SECRET_TOKEN }}
